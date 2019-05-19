@@ -1,8 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-function TwoExample() { 
-
   function BasicExample() {
     return (
       <Router>
@@ -17,6 +15,9 @@ function TwoExample() {
             <li>
               <Link to="/topics">Topics</Link>
             </li>
+            <li>
+              <Link to="/interests">*Interests*</Link>
+            </li>
           </ul>
   
           <hr />
@@ -24,6 +25,7 @@ function TwoExample() {
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />
           <Route path="/topics" component={Topics} />
+          <Route path="/interests" component={Interests} />
         </div>
       </Router>
     );
@@ -79,58 +81,14 @@ function TwoExample() {
     );
   }
 
-  function ParamsExample() {
-    return (
-      <Router>
-        <div>
-          <h2>Accounts</h2>
-          <ul>
-            <li>
-              <Link to="/netflix">Netflix</Link>
-            </li>
-            <li>
-              <Link to="/zillow-group">Zillow Group</Link>
-            </li>
-            <li>
-              <Link to="/yahoo">Yahoo</Link>
-            </li>
-            <li>
-              <Link to="/modus-create">Modus Create</Link>
-            </li>
-          </ul>
-  
-          <Route path="/:id" component={Child} />
-  
-          {/*
-             It's possible to use regular expressions to control what param values should be matched.
-                * "/order/asc"  - matched
-                * "/order/desc" - matched
-                * "/order/foo"  - not matched
-          */}
-          <Route
-            path="/order/:direction(asc|desc)"
-            component={ComponentWithRegex}
-          />
-        </div>
-      </Router>
-    );
-  }
-  
-  function Child({ match }) {
+  function Interests() {
     return (
       <div>
-        <h3>ID: {match.params.id}</h3>
+        <h2>Instagram</h2>
+        <img id="color" src="https://www.lactame.com/github/image-js/image-js/3073b80c7d626196cb669f9d617f491a8338ca66/test/img/taxi/original.jpeg" />
+    <img id='result' />
       </div>
     );
   }
-  
-  function ComponentWithRegex({ match }) {
-    return (
-      <div>
-        <h3>Only asc/desc are allowed: {match.params.direction}</h3>
-      </div>
-    );
-  }
-}
 
-export default TwoExample;
+export default BasicExample;
