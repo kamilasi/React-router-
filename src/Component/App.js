@@ -4,12 +4,13 @@ import ButtonAppBar from './ButtonAppBar';
 import logo from './logo.svg';
 import './App.css';
 
-  render () {
-    return (
-    <div>
+  export default class App extends Component {
+    render () {
+      return (
+        <div>
         <Router/>
         <ButtonAppBar/>
-    </div>
-    );
+      </div> 
+      );
   }
 }
